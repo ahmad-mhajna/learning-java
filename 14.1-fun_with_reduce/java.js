@@ -5,7 +5,10 @@ const max = grades.reduce((max, currval) => {
 });
 console.log(max);
 const sum = grades.reduce((max, currval) => {
-  return max + currval;
+  if (max % 2 === 0 && currval % 2 === 0) return max + currval;
+  else if (currval % 2 === 0) return currval;
+  else if (max % 2 === 0) return max;
+  else return 0;
 });
 console.log(sum);
 const average =
