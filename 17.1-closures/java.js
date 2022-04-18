@@ -14,10 +14,12 @@ var result = firstResult(2);
 var a = 1;
 function b2() {
   a = 10;
+  //   this return nothing
   return;
   function a() {}
 }
 b2();
+// since the reture return nothing this will be 1
 console.log(a);
 // block 3
 let i;
@@ -25,5 +27,6 @@ for (i = 0; i < 3; i++) {
   const log = () => {
     console.log(i);
   };
+  // thanks to the timeout function i is already 3 when logged
   setTimeout(log, 100);
 }
