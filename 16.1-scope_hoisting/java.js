@@ -43,10 +43,10 @@ function funcC() {
 }
 // this will reture 2 because it will use last time we defiend funcC
 funcC();
-// Block 5
 function funcC() {
   console.log("2");
 }
+// Block 5
 // this will console log 2
 funcC();
 function funcD1() {
