@@ -46,9 +46,9 @@ funcC();
 function funcC() {
   console.log("2");
 }
-// Block 5
 // this will console log 2
 funcC();
+// Block 5
 function funcD1() {
   d = 1;
 }
