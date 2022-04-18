@@ -7,6 +7,7 @@ function someFunction(number) {
   b = 5;
   return otherFunction;
 }
+//  both vars under this line will give back 5 because number and input are not used and we return  b and we define it as 5
 var firstResult = someFunction(9);
 var result = firstResult(2);
 // block 2
@@ -19,3 +20,10 @@ function b2() {
 b2();
 console.log(a);
 // block 3
+let i;
+for (i = 0; i < 3; i++) {
+  const log = () => {
+    console.log(i);
+  };
+  setTimeout(log, 100);
+}
