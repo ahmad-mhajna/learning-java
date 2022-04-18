@@ -24,6 +24,7 @@ var obj = {
 };
 console.log(obj.prop.getFullName());
 var test = obj.prop.getFullName;
+// this will reture John Doe because now this is going to get back to the first fullname
 console.log(test());
 // Block 3
 function funcB() {
