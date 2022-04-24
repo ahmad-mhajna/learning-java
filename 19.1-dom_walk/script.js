@@ -1,0 +1,13 @@
+const start = document.querySelector(`.start-here`);
+start.innerText = "main-title";
+const ul = start.parentElement.children[2].children[0];
+let newLi = document.createElement("li");
+newLi.innerText = "sub title 4";
+ul.appendChild(newLi);
+let parentUl = start.parentElement;
+parentUl.children[parentUl.children.length - 1].remove();
+let headObj = document.head;
+headObj.children[2].innerText = "Master of the DOM";
+let div = parentUl.nextElementSibling;
+let paragraph = div.children[0];
+paragraph.innerText = "I AM THE CONQUEROR OF THE DOM!!";
