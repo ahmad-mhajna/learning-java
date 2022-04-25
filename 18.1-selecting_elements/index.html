@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" / >
+    <meta
+      name="viewport"
+      content="width=device-width,
+initial-scale=1.0"
+    />
+    <title>Document</title>
+  </head>
+  <body>
+    <h1>Header</h1>
+    <p>Paragraph</p>
+    <a href="#">link</a>
+    <img src="" alt="" />
+    <div class="x">Div with a class</div>
+    <div id="y">Div with an id</div>
+    <input type="text" />
+    <input type="text" />
+    <input type="text" />
+  </body>
+  <script>
+    let header = document.getElementsByTagName("h1");
+    let p = document.getElementsByTagName("p");
+    let a = document.getElementsByTagName("a");
+    let img = document.getElementsByTagName("img");
+    let divwithclass = document.getElementsByClassName("x");
+    let divwithid = document.getElementById("y");
+    let input = document.getElementsByTagName("input");
+    header = document.querySelector("h1");
+    p = document.querySelector("p");
+    a = document.querySelector("a");
+    img = document.querySelector("img");
+    divwithclass = document.querySelector(".x");
+    divwithid = document.querySelector("#y");
+    let input2 = document.querySelectorAll("input");
+    [...input].forEach((input) => {
+      console.log(input);
+    });
+    input2.forEach((input2) => {
+      console.log(input2);
+    });
+  </script>
+</html>
