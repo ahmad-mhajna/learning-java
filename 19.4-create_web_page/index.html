@@ -9,6 +9,22 @@
   <body>
     <script>
       let body = document.querySelector("body");
+      let newh1 = document.createElement("h1");
+      newh1.innerText = "hello world";
+      body.append(newh1);
+      let newp = document.createElement("p");
+      newp.innerText =
+        "      Lorem ipsum dolor sit, amet consectetur adipisicing elit. A et assumenda officiis, alias architecto perferendis optio cumque excepturi. Minima maxime eos quaerat delectus tenetur vero quidem consectetur dolorum dignissimos incidunt!";
+      body.append(newp);
+      body.style.textAlign = "center";
+      let img = document.createElement("img");
+      img.setAttribute(
+        "src",
+        "https://t3.ftcdn.net/jpg/00/24/55/82/360_F_24558278_Ugh6eX7m225qB5SDtX5shMFhfpPPHzFc.jpg"
+      );
+      body.append(img);
+      body.style.background = "yellow";
+      body.style.color = "red";
     </script>
   </body>
 </html>
