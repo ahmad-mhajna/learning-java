@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      .error-massage {
+        display: none;
+      }
+    </style>
+  </head>
+  <body>
+    <p>how many smily you want</p>
+    <input type="number" placeholder="number" />
+    <button>show me</button>
+    <p class="error-massage">this is not a number</p>
+    <div></div>
+    <script>
+      let input = document.querySelector("input");
+      let btn = document.querySelector("button");
+      let error = document.querySelector(".error-massage");
+      let container = document.querySelector("div");
+      let regex = /[a-z]/gi;
+      btn.addEventListener("click", function () {
+        container.innerText = "";
+        if (input.value.includes("e") || input.value === "")
+          return (error.style.display = "block");
+
+        for (let i = 0; i < input.value; i++) {
+          let img = document.createElement("img");
+          img.setAttribute(
+            "src",
+            "https://t3.ftcdn.net/jpg/00/24/55/82/360_F_24558278_Ugh6eX7m225qB5SDtX5shMFhfpPPHzFc.jpg"
+          );
+          container.append(img);
+        }
+      });
+    </script>
+  </body>
+</html>

@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style></style>
+  </head>
+  <body>
+    <p>
+      Lorem ipsum dolor sit amet consectetur, adipisicing elit. Dicta quasi
+      illum, reiciendis expedita aspernatur nisi sapiente temporibus cum quos
+      neque vero atque quis ut nam, voluptatibus id facilis sint culpa?
+    </p>
+    <button class="bigger">+</button>
+    <button class="smaller">-</button>
+    <script>
+      let fontsizeincrease = document.querySelector(".bigger");
+      let fontsizedecrease = document.querySelector(".smaller");
+      let text = document.querySelector("p");
+      let compstyle = getComputedStyle(text);
+      fontsizeincrease.addEventListener("click", function textbigger() {
+        let textsize = compstyle.fontSize.slice(0, -2);
+        if (textsize < 100) text.style.fontSize = `${+textsize + 2}px`;
+      });
+      fontsizedecrease.addEventListener("click", function textsmaller() {
+        let textsize = compstyle.fontSize.slice(0, -2);
+        if (textsize > 6) text.style.fontSize = `${+textsize - 2}px`;
+      });
+    </script>
+  </body>
+</html>
