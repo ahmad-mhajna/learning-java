@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      body {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        margin-bottom: 2rem;
+      }
+      .box {
+        border: 2px black solid;
+        width: 40px;
+        height: 60px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+      }
+      .massage {
+        font-size: 2rem;
+      }
+      button {
+        display: none;
+      }
+    </style>
+  </head>
+  <body>
+    <h1>Welcome To Guess My Letter</h1>
+    <div class="box">?</div>
+    <p class="massage">guess a letter</p>
+    <h3>Keys Guessed</h3>
+    <button>Yes</button>
+    <p class="keys"></p>
+    <script>
+      let characters = "abcdefghijklmnopqrstuvwxyz";
+      let winningletter = characters.charAt(
+        Math.floor(Math.random() * characters.length)
+      );
+      console.log(winningletter);
+      let keysGuessed = document.querySelector(".keys");
+      let massage = document.querySelector(".massage");
+      let h3 = document.querySelector("h3");
+      let btn = document.querySelector("button");
+      let box = document.querySelector("div");
+      let disable = false;
+      let guessedLetters = [];
+      addEventListener("keypress", (evt) => {
+        let event = String.fromCharCode(evt.keyCode).toLowerCase();
+        if (disable === true) return;
+        else if (/[a-z]/i.test(event)) {
+          if (event === winningletter) {
+            massage.innerText = "Right letter!";
+            massage.style.color = "green";
+            h3.innerText = "would you like to play again ?";
+            btn.style.display = "inline-block";
+            keysGuessed.style.display = "none";
+            box.innerText = winningletter;
+            disable = true;
+          } else {
+            massage.style.color = "red";
+            if (!guessedLetters.includes(event)) {
+              massage.innerText = "nope, wrong letter";
+              keysGuessed.innerText +=
+                guessedLetters.length === 0 ? `${event}` : `,${event}`;
+              guessedLetters.push(event);
+            } else massage.innerText = `${event} has already been guessed  `;
+          }
+        } else {
+          massage.innerText = "Only alphabetical letter";
+          massage.style.color = "red";
+        }
+      });
+      btn.addEventListener("click", () => {
+        document.location.reload();
+      });
+    </script>
+  </body>
+</html>

@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <style>
+      body {
+        width: 100%;
+        text-align: center;
+      }
+    </style>
+    <title>Document</title>
+  </head>
+  <body>
+    <form id="form">
+      <div>
+        <label for="name">Name</label>
+        <input type="text" name="name" id="name" required />
+      </div>
+      <div>
+        <label for="email">Email</label>
+        <input type="email" name="email" id="email" required />
+      </div>
+      <div>
+        <label for="age">Age</label>
+        <input type="number" name="age" id="age" min="1" max="200" required />
+      </div>
+
+      <input type="submit" />
+    </form>
+    <script>
+      let form = document.querySelector("#form");
+      let name = document.querySelector("#name");
+      let email = document.querySelector("#email");
+      let age = document.querySelector("#age");
+      let button = document.querySelector("button");
+      form.addEventListener("submit", (event) => {
+        if (
+          confirm(`is this info correct ?
+        name : ${name.value}
+        email :${email.value} 
+        age :${age.value} `)
+        )
+          alert("congratulations you successfully sent this form");
+        else event.preventDefault();
+      });
+    </script>
+  </body>
+</html>

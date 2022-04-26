@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      body {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex-direction: column;
+      }
+      img {
+        display: none;
+      }
+    </style>
+  </head>
+  <body>
+    <input type="checkbox" />
+    <img
+      src="https://t3.ftcdn.net/jpg/00/24/55/82/360_F_24558278_Ugh6eX7m225qB5SDtX5shMFhfpPPHzFc.jpg"
+      alt="smily"
+    />
+    <script>
+      let checkbox = document.querySelector("input");
+      let img = document.querySelector("img");
+      checkbox.addEventListener("click", () => {
+        if (checkbox.checked) img.style.display = "inline-block";
+        else img.style.display = "none";
+      });
+    </script>
+  </body>
+</html>
