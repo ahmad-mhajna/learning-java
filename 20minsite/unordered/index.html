@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      * {
+        box-sizing: border-box;
+        padding: 0;
+        margin: 0;
+      }
+      body {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex-direction: column;
+      }
+      ul {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex-direction: column;
+        width: 15rem;
+        background-color: gray;
+        color: black;
+        font-size: 30px;
+      }
+      li {
+        font-size: 30px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex-direction: column;
+        color: white;
+        background-color: blue;
+        width: 100%;
+
+        padding: 20px;
+      }
+      button {
+        margin-top: 20px;
+        padding: 10px 20px;
+        color: white;
+        background-color: red;
+        transition: 0.2s all ease-in-out;
+        border-radius: 10px;
+        border: 2px gray solid;
+        cursor: pointer;
+      }
+      button:hover {
+        background-color: rgb(131, 8, 8);
+      }
+    </style>
+  </head>
+  <body>
+    <ul>
+      <h3>Unordered list</h3>
+      <li>item 1 <button>Remove</button></li>
+      <li>item 2<button>Remove</button></li>
+      <li>item 3<button>Remove</button></li>
+      <li>item 4<button>Remove</button></li>
+      <li>item 5<button>Remove</button></li>
+    </ul>
+    <script>
+      let btns = document.querySelectorAll("button");
+      btns.forEach((btn) => {
+        btn.addEventListener("click", (event) => {
+          event.target.parentElement.remove();
+        });
+      });
+    </script>
+  </body>
+</html>
