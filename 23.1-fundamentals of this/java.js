@@ -15,11 +15,13 @@ myObj.greet();
 const myFuncDec = function () {
   console.log(this);
 };
+myFuncDec.bind(myObj);
 // this will Reference the window
 //    Question 4:
 const myFuncArrow = () => {
   console.log(this);
 };
+myFuncArrow.bind(myObj);
 myFuncArrow();
 // this will Reference the window
 //    Question 5:
