@@ -21,16 +21,16 @@ const makeCard = (person) => {
   const cardDiv = document.createElement("div");
   cardDiv.classList.add("card");
   const nameText = document.createElement("p");
-  nameText.textContent = `Name : ${person.name}`;
+  nameText.innerText = `Name : ${person.name}`;
   cardDiv.append(nameText);
   const heightText = document.createElement("p");
-  heightText.textContent = `Height : ${person.height}cm`;
+  heightText.innerText = `Height : ${person.height}cm`;
   const hairColorText = document.createElement("p");
-  hairColorText.textContent = `Hair color : ${person.hairColor}`;
+  hairColorText.innerText = `Hair color : ${person.hairColor}`;
   const homeWorldText = document.createElement("p");
-  homeWorldText.textContent = `Home world : ${person.homeWorld}`;
+  homeWorldText.innerText = `Home world : ${person.homeWorld}`;
   const homeWorldPop = document.createElement("p");
-  homeWorldPop.textContent = `Home world population : ${person.homeWorldPop}`;
+  homeWorldPop.innerText = `Home world population : ${person.homeWorldPop}`;
   cardDiv.append(
     nameText,
     heightText,
