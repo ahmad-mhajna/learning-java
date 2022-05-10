@@ -2,9 +2,7 @@ const peopleArr = [];
 const getfirstTen = async () => {
   for (let i = 1; i <= 10; i++) {
     const person = await axios.get("https://swapi.dev/api/people/" + i);
-    console.log(person);
     const planet = await axios.get(person.data.homeworld);
-    console.log(planet);
     const personObj = {
       name: person.data.name,
       height: person.data.height,
