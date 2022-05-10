@@ -1,0 +1,31 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: Arial, Helvetica, sans-serif;
+}
+body {
+  background: gray;
+}
+p {
+  color: white;
+  text-align: center;
+}
+.flex-container {
+  display: flex;
+  justify-content: center;
+  margin-top: 1rem;
+}
+.card-container {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  width: 100%;
+  padding: 0 8%;
+  gap: 2rem;
+}
+.card {
+  width: 70%;
+  height: 30vh;
+  border: 3px solid red;
+  background: rgb(0, 5, 14);
+}

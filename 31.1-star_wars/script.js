@@ -1,42 +1,42 @@
-const form = document.querySelector("form");
-document.addEventListener("submit", onsubmit);
-let dupes = [];
-function onsubmit(e) {
-  e.preventDefault();
-  let searchinput = document.querySelector("input");
-  let chrName = searchinput.value.split(" ").join("");
-  if (!dupes.includes(chrName)) {
-    dupes.push(chrName);
-    getdata(chrName);
-  }
-
-  searchinput.value = "";
-}
-//
-const getdata = async (chrName) => {
-  try {
-    let response = await fetch(`https://swapi.dev/api/people/${chrName}`);
-    response = await response.json();
-    if (response.message === "Not Found") throw new Error("No User Found");
-
-    const chrInfo = {
-      name: response.data.name,
-      height: response.data.height,
-      hairColor: response.data.hair_color,
-      homeWorld: {
-        name: response.data.planet.name,
-      },
+const peopleArr = [];
+const getfirstTen = async () => {
+  for (let i = 1; i <= 10; i++) {
+    const person = await axios.get("https://swapi.dev/api/people/" + i);
+    console.log(person);
+    const planet = await axios.get(person.data.homeworld);
+    console.log(planet);
+    const personObj = {
+      name: person.data.name,
+      height: person.data.height,
+      hairColor: person.data.hair_color,
+      homeWorld: planet.data.name,
+      homeWorldPop: planet.data.population,
     };
-    addchar(chrInfo);
-  } catch (e) {
-    console.error(e);
+    makeCard(personObj);
+    peopleArr.push(personObj);
   }
 };
-//
-const addchar = (chrInfo) => {
-  console.log(chrInfo);
-  const container = document.querySelector(".result");
-  const user = document.createElement("div");
-  user.append();
-  container.append(user);
+getfirstTen();
+const makeCard = (person) => {
+  const cardDiv = document.createElement("div");
+  cardDiv.classList.add("card");
+  const nameText = document.createElement("p");
+  nameText.textContent = `Name : ${person.name}`;
+  cardDiv.append(nameText);
+  const heightText = document.createElement("p");
+  heightText.textContent = `Height : ${person.height}cm`;
+  const hairColorText = document.createElement("p");
+  hairColorText.textContent = `Hair color : ${person.hairColor}`;
+  const homeWorldText = document.createElement("p");
+  homeWorldText.textContent = `Home world : ${person.homeWorld}`;
+  const homeWorldPop = document.createElement("p");
+  homeWorldPop.textContent = `Home world population : ${person.homeWorldPop}`;
+  cardDiv.append(
+    nameText,
+    heightText,
+    hairColorText,
+    homeWorldText,
+    homeWorldPop
+  );
+  document.querySelector(".card-container").append(cardDiv);
 };
