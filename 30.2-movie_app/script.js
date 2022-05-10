@@ -4,39 +4,49 @@ let dupes = [];
 function onsubmit(e) {
   e.preventDefault();
   let searchinput = document.querySelector("input");
-  let username = searchinput.value.split(" ").join("+");
-  if (!dupes.includes(username)) {
-    dupes.push(username);
-    getdata(username);
+  let movieName = searchinput.value.split(" ").join("+");
+  if (!dupes.includes(movieName)) {
+    dupes.push(movieName);
+    getdata(movieName);
   }
 
   searchinput.value = "";
 }
 //
-const getdata = async (username) => {
+const getdata = async (movieName) => {
   try {
-    let response = await fetch(`https://api.github.com/users/${username}`);
+    let response = await fetch(
+      "http://www.omdbapi.com/?apikey=b92ae137&" + `t=${movieName}`
+    );
     response = await response.json();
+    addmovie(response);
     if (response.message === "Not Found") throw new Error("No User Found");
-
-    let name = response.login;
-    let avatar = response.avatar_url;
-    let repos = response.public_repos;
-    addUser(name, avatar, repos);
   } catch (e) {
     console.error(e);
   }
 };
 //
-const addUser = (name, avatar, repos) => {
+const addmovie = (movieinfo) => {
   const container = document.querySelector(".result");
-  const user = document.createElement("div");
-  const username = document.createElement("h2");
-  const useravatar = document.createElement("img");
-  const userrepos = document.createElement("p");
-  username.innerText = name;
-  useravatar.src = avatar;
-  userrepos.innerText = `Repositories: ${repos}`;
-  user.append(username, useravatar, userrepos);
-  container.append(user);
+  container.innerText = "";
+  const movieCard = document.createElement("div");
+  let MoviePoster = movieinfo.Poster;
+  const posterIMG = document.createElement("img");
+  posterIMG.src = MoviePoster;
+  movieCard.append(posterIMG);
+  const movieKeys = ["Title", "Genre", "Year", "Plot", "Director", "Actors"];
+  for (let i = 0; i < 6; i++) {
+    let p = document.createElement("p");
+    p.innerText = movieinfo[movieKeys[i]];
+    movieCard.append(p);
+  }
+
+  let Ratings = movieinfo.Ratings;
+  Ratings.forEach((rating) => {
+    let p = document.createElement("p");
+    p.innerText = ` Ratings:${rating.Source}: ${rating.Value} `;
+    movieCard.append(p);
+  });
+
+  container.append(movieCard);
 };
