@@ -4,7 +4,7 @@ let dupes = [];
 function onsubmit(e) {
   e.preventDefault();
   let searchinput = document.querySelector("input");
-  let username = searchinput.value.split(" ").join("");
+  let username = searchinput.value.split(" ").join("+");
   if (!dupes.includes(username)) {
     dupes.push(username);
     getdata(username);
